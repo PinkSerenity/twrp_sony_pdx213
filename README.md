@@ -1,4 +1,10 @@
-## Thanks
-- [sekaiacg](https://github.com/sekaiacg/device_xiaomi_alioth-TWRP/) for twrp base
-- [ShirokaneShizuku](https://github.com/ShirokaneShizuku) for initial bringup
-- [hellobbn](https://github.com/hellobbn/) for kernel source
+# Android device tree for Sony Pdx213 (pdx213)
+
+```
+#
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+```

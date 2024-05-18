@@ -1,36 +1,28 @@
 #
-# Copyright (C) 2019 The TwrpBuilder Open-Source Project
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/sony/pdx213
+# Inherit some AOSP stuff.
+$(call inherit-product, product/aosp_base.mk)
 
-# Inherit from device.mk configuration
-$(call inherit-product, $(DEVICE_PATH)/device.mk)
+# Inherit some common TWRP stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2520
-TARGET_SCREEN_WIDTH := 1080
+# Inherit from pdx213 device
+$(call inherit-product, device/sony/pdx213/device.mk)
 
-# Release name
-PRODUCT_RELEASE_NAME := pdx213
-
-## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := pdx213
 PRODUCT_NAME := twrp_pdx213
 PRODUCT_BRAND := Sony
-PRODUCT_MODEL := Xperia 10 III
-PRODUCT_MANUFACTURER := Sony
+PRODUCT_MODEL := Pdx213
+PRODUCT_MANUFACTURER := sony
 
-TARGET_OTA_ASSERT_DEVICE := XQ-BT72, $(PRODUCT_RELEASE_NAME)
+PRODUCT_GMS_CLIENTID_BASE := android-sony
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="pdx213-user 11 RKQ1.220715.001 1 dev-keys"
+
+BUILD_FINGERPRINT := Sony/pdx213/pdx213:11/RKQ1.220715.001/1:user/dev-keys

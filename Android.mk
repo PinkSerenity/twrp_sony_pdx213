@@ -1,5 +1,12 @@
+#
+# Copyright (C) 2024 The Android Open Source Project
+# Copyright (C) 2024 SebaUbuntu's TWRP device tree generator
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter pdx213,$(TARGET_DEVICE)),)
-include $(call all-makefiles-under,$(LOCAL_PATH))
+ifeq ($(TARGET_DEVICE),pdx213)
+include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
