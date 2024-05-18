@@ -15,6 +15,12 @@
 #
 
 DEVICE_PATH := device/sony/pdx213
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit some common Omni stuff.
+$(call inherit-product, vendor/omni/config/common.mk)
 
 # Inherit from device.mk configuration
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
@@ -31,6 +37,8 @@ PRODUCT_DEVICE := pdx213
 PRODUCT_NAME := twrp_pdx213
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := Xperia 10 III
-PRODUCT_MANUFACTURER := Sony
+PRODUCT_MANUFACTURER := sony
+
+PRODUCT_GMS_CLIENTID_BASE := android-sony
 
 TARGET_OTA_ASSERT_DEVICE := XQ-BT72, $(PRODUCT_RELEASE_NAME)
