@@ -14,23 +14,16 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/sony/pdx213
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+PRODUCT_PLATFORM := lagoon
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/twrp/config/common.mk)
 
 # Inherit from device.mk configuration
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 2520
-TARGET_SCREEN_WIDTH := 1080
-
-# Release name
-PRODUCT_RELEASE_NAME := pdx213
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := pdx213
@@ -38,6 +31,13 @@ PRODUCT_NAME := twrp_pdx213
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := Xperia 10 III
 PRODUCT_MANUFACTURER := sony
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 2520
+TARGET_SCREEN_WIDTH := 1080
+
+# Release name
+PRODUCT_RELEASE_NAME := pdx213
 
 PRODUCT_GMS_CLIENTID_BASE := android-sony
 
