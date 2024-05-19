@@ -15,17 +15,19 @@ AB_OTA_POSTINSTALL_CONFIG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
+    bootctrl.lito \
+    bootctrl.sony_sm6350 \
+    bootctrl.sony_sm6350.recovery \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+    android.hardware.boot@1.0-impl.recovery \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.1-impl \
+    android.hardware.boot@1.1-impl.recovery \
+    android.hardware.boot@1.1-service \
+    android.hardware.boot@1.1-impl-qti.recovery
 
 PRODUCT_PACKAGES += \
-    bootctrl.lito
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.lito \
-    libgptutils \
-    libz \
-    libcutils
+    bootctrl
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
