@@ -36,11 +36,19 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_system=true
 
 PRODUCT_PACKAGES += \
+    bootctrl.lito \
+    bootctrl.sony_sm6350 \
     bootctrl.sony_sm6350.recovery \
     android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-impl.recovery \
     android.hardware.boot@1.0-service \
-    android.hardware.boot@1.1-impl-qti.recovery \
-    bootctrl.lito
+    android.hardware.boot@1.1-impl \
+    android.hardware.boot@1.1-impl.recovery \
+    android.hardware.boot@1.1-service \
+    android.hardware.boot@1.1-impl-qti.recovery
+
+PRODUCT_PACKAGES += \
+    bootctrl
 
 # SHIPPING API
 PRODUCT_SHIPPING_API_LEVEL := 30
@@ -58,12 +66,6 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PROPERTY_OVERRIDES += ro.twrp.device.name=$(PRODUCT_RELEASE_NAME)
 
 TWRP_REQUIRED_MODULES += sony_firmware
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.lito \
-    libgptutils \
-    libz \
-    libcutils
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
